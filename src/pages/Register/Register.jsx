@@ -1,29 +1,30 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 const Register = () => {
   // states
   const [showPassword, setShowPassword] = useState(false);
   const [registrationError, setRegistrationError] = useState("");
 
   // use context
-//   const { signUp, handleUpdateProfile } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile } = useAuth();
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
   // onsubmit functionlity
   const handleRegister = (e) => {
     e.preventDefault();
 
     // get data from input fields
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const photo = form.get("photo");
-    const email = form.get("email");
-    const password = form.get("password");
-      const check = e.target.check.checked;
-      console.log(name,photo,email,password);
-
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const check = e.target.check.checked;
+    
     // reset error
     setRegistrationError("");
 
@@ -47,27 +48,27 @@ const Register = () => {
     }
 
     // create a new user
-    // signUp(email, password)
-    //   .then((res) => {
-    //     console.log(res.user);
-    //     toast.success("sign up successfull");
-    //     navigate("/");
-    //     handleUpdateProfile(name, photo)
-    //       .then(() => {
-    //         window.location.reload();
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setRegistrationError(error.message);
-    //   });
+    createUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("sign up successfull");
+        navigate("/");
+        handleUpdateProfile(name, photo)
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+        setRegistrationError(error.message);
+      });
   };
 
   return (
-    <section className="bg-gray-50    ">
+    <section className="bg-gray-50 ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
         <div className="w-full  bg-white rounded-lg shadow dark:border  max-w-md xl:p-0  ">
           <div className="     space-y-3 md:space-y-4 p-8">
@@ -150,8 +151,8 @@ const Register = () => {
                 </div>
               </div>
               {registrationError && (
-              <p className="text-red-500">{registrationError}</p>
-            )}
+                <p className="text-red-500">{registrationError}</p>
+              )}
               <div className="flex items-center justify-between">
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
@@ -188,7 +189,6 @@ const Register = () => {
               <p className="divider">or</p>
               <SocialLogin></SocialLogin>
             </form>
-            
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const navLinks = (
@@ -22,7 +24,16 @@ const Navbar = () => {
   );
 
   // context
-  const user = "";
+    const { user,logOut } = useAuth();
+
+    const handleSignUp = () => {
+        logOut()
+        .then(() => {
+             toast.success('logged out successfully')
+          }).catch((error) => {
+              toast.error(error.message);
+          });
+    }
 
   return (
     <div className="navbar py-4 bg-base-100">
@@ -75,7 +86,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                <button className="btn btn-sm whitespace-nowrap  btn-ghost">
+                <button onClick={handleSignUp} className="btn btn-sm whitespace-nowrap  btn-ghost">
                   Logout
                 </button>
               </li>
