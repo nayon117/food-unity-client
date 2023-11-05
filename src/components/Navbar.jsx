@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 
+import { MdOutlineCleanHands } from "react-icons/md";
 const Navbar = () => {
   const navLinks = (
     <>
@@ -62,7 +63,10 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="font-bold normal-case text-2xl">FoodUnity</a>
+        <a className="font-bold flex normal-case text-2xl">
+          <p>Food</p> 
+          <span><MdOutlineCleanHands></MdOutlineCleanHands></span> <p>Unity</p>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -77,16 +81,16 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box z-50 w-52"
             >
               <li>
-                <button className="btn btn-sm whitespace-nowrap  btn-ghost">
+                <button className="btn   btn-sm whitespace-nowrap  btn-ghost">
                   {user.displayName}
                 </button>
               </li>
 
               <li>
-                <button onClick={handleSignUp} className="btn btn-sm whitespace-nowrap  btn-ghost">
+                <button onClick={handleSignUp} className="btn btn-sm whitespace-nowrap   btn-ghost">
                   Logout
                 </button>
               </li>
