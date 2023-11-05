@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
+import errorPage from '../../assets/errorpage.json'
+import Lottie from "lottie-react";
 
 const ErrorPage = () => {
     return (
-        <div className="flex h-screen justify-center items-center">
-            <div className="space-y-5 mx-auto">
-            <h2 className=" font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-red-300 to-[#FF444A]  text-center">ooops !</h2>
-            <h3 className=" text-center text-2xl font-bold  ">404-Page Not Found</h3>
-            <p className="font-medium">The page you are looking for might be removed or temporarily unavailable</p>
-           <Link to="/"><button className="btn mx-auto block mt-4 bg-[#FF444A] text-white font-bold">GO TO HOMEPAGE</button></Link>
+        <div className="flex flex-col h-screen items-center">
+            <Lottie animationData={errorPage}></Lottie>
+           <Link to="/"><button className="text-white btn bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300   shadow-lg  font-medium rounded-lg text-sm px-5  text-center mr-2 mb-2">Back TO HOMEPAGE</button></Link>
            </div>
-        </div>
+        
     );
 };
 
