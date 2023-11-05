@@ -1,4 +1,5 @@
 import Banner from "../../components/Banner";
+import NewsLetter from "../../components/NewsLetter";
 import Stat from "../../components/Stat";
 import Testimonial from "../../components/Testimonial";
 
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <Stat></Stat>
       <Testimonial></Testimonial>
+      <NewsLetter></NewsLetter>
     </div>
   );
 };
