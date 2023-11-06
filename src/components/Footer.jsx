@@ -1,3 +1,4 @@
+import { MdOutlineCleanHands } from "react-icons/md";
 const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-neutral text-neutral-content rounded">
@@ -45,7 +46,14 @@ const Footer = () => {
         </div>
       </nav>
       <aside>
-        <p>Copyright © 2023 - All right reserved by FoodUnity</p>
+        <div className="flex">
+          Copyright © 2023 - All right reserved by  
+           <p>&nbsp;Food</p>
+          <span>
+            <MdOutlineCleanHands></MdOutlineCleanHands>
+          </span>{" "}
+          <p>Unity</p>
+        </div>
       </aside>
     </footer>
   );

@@ -13,8 +13,8 @@ const Banner = () => {
     <div className="">
       <Swiper
         pagination={{
-                  dynamicBullets: true,
-                  el: ".swiper-pagination",
+          dynamicBullets: true,
+          el: ".swiper-pagination",
         }}
         modules={[Pagination]}
       >
@@ -86,8 +86,8 @@ const Banner = () => {
             <button className="btn block mx-auto btn-neutral">Know More</button>
           </div>
         </SwiperSlide>
-          </Swiper>
-          <div className="swiper-pagination absolute bottom-4 right-4 z-10" />
+      </Swiper>
+      <div className="swiper-pagination absolute bottom-4 right-4 z-10" />
     </div>
   );
 };
