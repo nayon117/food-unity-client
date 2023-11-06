@@ -28,8 +28,8 @@ const AvailableFoods = () => {
   );
 
   return (
-    <div className="my-20">
-      <div className="flex items-center my-10">
+    <div className="my-16">
+      <div className="flex items-center mb-10">
         <input
           type="text"
           placeholder="search here ..."

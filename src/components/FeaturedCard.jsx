@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 const FeaturedCard = ({ food }) => {
-      const {additionalNotes,expiredDateTime,
+      const {_id,additionalNotes,expiredDateTime,
         pickupLocation, foodQuantity, donatorName ,donatorImage,foodImage,foodName
     } = food || {}
   return (
@@ -24,7 +25,7 @@ const FeaturedCard = ({ food }) => {
               </div>
               <p className='text-center font-medium'>Location: {pickupLocation }</p>
         <div className="card-actions py-3 ">
-          <button className="btn mx-auto btn-neutral">view details</button>
+         <Link to={`/details/${_id}`}> <button className="btn   ml-28 btn-neutral">view details</button></Link>
         </div>
       </div>
     </div>
