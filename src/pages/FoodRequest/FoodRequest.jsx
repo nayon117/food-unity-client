@@ -15,8 +15,8 @@ const FoodRequest = () => {
   }, [url])
   console.log(reqeusts);
   return (
-    <div>
-      <p>Hello, I am FoodRequest</p>
+    <div className="my-10">
+      <p className="text-center text-4xl font-bold">Food Requests</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           reqeusts?.map(request => <FoodRequestCard
