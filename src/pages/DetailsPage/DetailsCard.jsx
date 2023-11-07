@@ -27,7 +27,7 @@ const DetailsCard = ({ details }) => {
     const foodImage = form.foodImage.value;
     const donatorName = form.donatorName.value;
     const pickupLocation = form.pickupLocation.value;
-    const userEmail = form.userEmail.value;
+    const email = form.userEmail.value;
     const expiredDateTime = form.expiredDateTime.value;
     const AdditionalNotes = form.AdditionalNotes.value;
     const DonationMoney = form.DonationMoney.value;
@@ -38,7 +38,7 @@ const DetailsCard = ({ details }) => {
 
       donatorName,
       pickupLocation,
-      userEmail,
+      email,
       expiredDateTime,
       AdditionalNotes,
       DonationMoney,
