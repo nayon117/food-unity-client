@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import DetailsCard from "./DetailsCard";
 
 const DetailsPage = () => {
-    const [details,setDetails] = useState([])
+    const [details,setDetails] = useState({})
     const loadedDetails = useLoaderData()
     
     useEffect(() => {
