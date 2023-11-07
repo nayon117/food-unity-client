@@ -35,7 +35,8 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: "food-request",
-                element: <PrivateRoute><FoodRequest></FoodRequest></PrivateRoute>
+                element: <PrivateRoute><FoodRequest></FoodRequest></PrivateRoute>,
+                loader:()=>fetch('http://localhost:5000/requests')
             },
             {
                 path: "/login",
