@@ -1,4 +1,6 @@
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const AddFood = () => {
 
@@ -8,16 +10,32 @@ const AddFood = () => {
     e.preventDefault()
     const form = e.target;
     const email = user.email;
-    const photo = user.photoURL;
-    const userName = user.displayName;
+    const donatorImage = user.photoURL;
+    const donatorName = user.displayName;
     const foodName = form.foodName.value;
     const foodImage = form.foodImage.value;
     const foodQuantity = form.foodQuantity.value;
     const pickupLocation = form.pickupLocation.value;
     const expiredDateTime = form.expiredDateTime.value;
     const foodStatus = form.foodStatus.value;
-    console.log(email, photo,userName, foodName, foodImage, foodQuantity, pickupLocation ,expiredDateTime, foodStatus);
+    console.log(email, donatorImage, donatorName, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, foodStatus);
+    
+    const addData = {
+      email, donatorImage,donatorName, foodName, foodImage, foodQuantity, pickupLocation ,expiredDateTime, foodStatus
+    }
+
+    axios.post('http://localhost:5000/foods', addData)
+      .then(res => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          toast.success('you have added successfully')
+        }
+    })
+
+
+
   }
+  
 
 
 

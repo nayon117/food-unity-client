@@ -20,7 +20,7 @@ const FeaturedCard = ({ food }) => {
                   <p className='font-medium text-center'>expire: { expiredDateTime}</p>
              </div>
               <div className='flex items-center gap-28 text-center mx-auto py-4 '>
-                  <img className='w-10 h-10  ' src={donatorImage} alt="" />
+                  <img className='w-10 h-10 rounded-full  ' src={donatorImage} alt="" />
                   <p className='font-medium '>Donar: { donatorName}</p>
               </div>
               <p className='text-center font-medium'>Location: {pickupLocation }</p>
