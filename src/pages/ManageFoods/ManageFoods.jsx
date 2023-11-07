@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useTable } from "react-table";
 import axios from "axios";
@@ -43,7 +44,10 @@ const ManageFoods = () => {
         accessor: "actions",
         Cell: ({ row }) => (
           <div>
-            {/* <button className="btn btn-sm btn-neutral" onClick={() => handleEdit(row.original._id)}>Edit</button><br /> */}
+            <Link to={`/update/${row.original._id}`} className="btn btn-sm btn-neutral">
+            Edit
+          </Link>
+            <br />
             <button
               className="btn btn-sm btn-neutral my-2"
               onClick={() => handleDelete(row.original._id)}
