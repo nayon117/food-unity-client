@@ -73,10 +73,10 @@ const DetailsCard = ({ details }) => {
 
   return (
     <div className="my-20">
-      <h2 className="font-medium">Donar Name: {donatorName}</h2>
-      <h3 className="font-medium">pickup Location:{pickupLocation}</h3>
+      <h2 className="font-medium text-xl">Donar Name: {donatorName}</h2>
+      <h3 className="font-medium text-xl py-4">pickup Location:{pickupLocation}</h3>
       <img src={foodImage} alt="" />
-      <div className="space-y-3">
+      <div className="space-y-3 py-4">
         <h3 className="font-medium">Food Name: {foodName}</h3>
         <h3 className="font-medium">Food Quantity: {foodQuantity}</h3>
 

@@ -102,7 +102,7 @@ const ManageFoods = () => {
   return (
     <div className="my-10">
       <div className="container mx-auto p-4">
-        <table className="table-auto w-full" {...getTableProps()}>
+        <table className="table-auto  w-full" {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>

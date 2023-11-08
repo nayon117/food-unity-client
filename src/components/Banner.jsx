@@ -20,7 +20,7 @@ const Banner = () => {
       >
         <SwiperSlide className="relative ">
           <img
-            className="block hero-overlay opacity-50 mx-auto w-full h-[75vh] rounded-md  object-cover"
+            className="block hero-overlay  opacity-30 mx-auto w-full h-[75vh] rounded-md  object-cover"
             src="https://i.ibb.co/p3CvB43/lily-banse-YHSwy6uqvk-unsplash.jpg"
             alt=""
           />
