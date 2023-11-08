@@ -26,6 +26,9 @@ const AvailableFoods = () => {
   const filteredFoods = availableFoods.filter((food) =>
     food.foodName.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  useEffect(() => {
+    document.title = 'FoodUnity | Available Foods';
+  }, []);
 
   return (
     <div className="my-16">

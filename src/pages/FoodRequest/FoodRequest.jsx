@@ -13,7 +13,12 @@ const FoodRequest = () => {
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, [url]);
-  console.log(reqeusts);
+  
+  useEffect(() => {
+    document.title = 'FoodUnity | Food Requests';
+  }, []);
+
+
   return (
     <div className="my-10">
       <p className="text-center text-4xl font-bold">Food Requests</p>

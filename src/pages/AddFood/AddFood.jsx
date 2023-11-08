@@ -1,6 +1,7 @@
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const AddFood = () => {
   const { user } = useAuth();
@@ -37,6 +38,10 @@ const AddFood = () => {
       }
     });
   };
+
+  useEffect(() => {
+    document.title = 'FoodUnity | Add Food';
+  }, []);
 
   return (
     <div className="px-24 py-10 bg-[#F4F3F0]">

@@ -52,6 +52,10 @@ const Update = () => {
     });
   };
 
+  useEffect(() => {
+    document.title = 'FoodUnity | update';
+  }, []);
+
   return (
     <div className="px-24 py-10 bg-[#F4F3F0]">
       <h2 className="text-center font-bold text-2xl py-10">Update a Food</h2>

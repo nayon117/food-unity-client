@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
@@ -40,7 +40,10 @@ const Login = () => {
                 console.log(error);
                 setLoginError(error.message)
         })
-    }
+  }
+  useEffect(() => {
+    document.title = 'FoodUnity | Login';
+  }, []);
 
     return (
         <section className="bg-gray-50 ">

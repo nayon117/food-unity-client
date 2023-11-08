@@ -17,7 +17,7 @@ const ManageFoods = () => {
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, [url]);
-  console.log(foods);
+  
 
   const data = React.useMemo(() => foods, [foods]);
   const columns = React.useMemo(
@@ -94,6 +94,10 @@ const ManageFoods = () => {
       }
     });
   };
+
+  useEffect(() => {
+    document.title = 'FoodUnity | Manage Foods';
+  }, []);
 
   return (
     <div className="my-10">

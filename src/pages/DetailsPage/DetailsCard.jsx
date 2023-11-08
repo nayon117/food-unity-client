@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import useAuth from "../../hooks/useAuth";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
@@ -66,6 +66,10 @@ const DetailsCard = ({ details }) => {
 
     dialogRef.current.close();
   };
+
+  useEffect(() => {
+    document.title = 'FoodUnity | Details';
+  }, []);
 
   return (
     <div className="my-20">

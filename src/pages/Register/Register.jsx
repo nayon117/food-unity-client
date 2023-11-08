@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -66,6 +66,10 @@ const Register = () => {
         setRegistrationError(error.message);
       });
   };
+
+  useEffect(() => {
+    document.title = 'FoodUnity | Register';
+  }, []);
 
   return (
     <section className="bg-gray-50 ">

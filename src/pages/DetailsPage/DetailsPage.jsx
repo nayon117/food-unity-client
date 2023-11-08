@@ -11,7 +11,7 @@ const DetailsPage = () => {
              setDetails(loadedDetails)
          }
     }, [loadedDetails])
-    console.log(details);
+  
     
   return (
     <div>

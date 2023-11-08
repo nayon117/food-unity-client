@@ -20,6 +20,10 @@ const ManageReq = () => {
   //     })
   // }
 
+  useEffect(() => {
+    document.title = 'FoodUnity | Manage';
+  }, []);
+
   return (
     <div>
       <p className="text-4xl font-bold text-center my-10">
