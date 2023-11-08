@@ -20,7 +20,7 @@ const FoodRequest = () => {
 
   return (
     <div className="my-10">
-      <p className="text-center text-4xl font-bold">My Food Requests</p>
+      <p className="text-center text-4xl font-bold">My Food Requests:{ reqeusts.length}</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {reqeusts?.map((request) => (
           <FoodRequestCard
