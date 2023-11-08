@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 const ManageFoods = () => {
   const [foods, setFoods] = useState([]);
   const { user } = useAuth();
-  const url = `http://localhost:5000/foods?email=${user.email}`;
+  const url = `http://localhost:5000/foods?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url)

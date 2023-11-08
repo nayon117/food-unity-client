@@ -1,25 +1,46 @@
 import { useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import ManageReqRow from "./ManageReqRow";
+
 const ManageReq = () => {
- 
-  const { foodId } = useParams()
-  console.log(foodId);
-  const [foodRequests,setFoodRequests] = useState([])
+  const [requests, setRequests] = useState([]);
+  const loadedData = useLoaderData();
+  console.log(loadedData);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/requests`)
-    .then((res) => res.json())
-    .then((data) => {
-      // Filter the requests to only include those with a matching foodId
-      const filteredRequests = data.filter((request) => request._id === foodId);
-      setFoodRequests(filteredRequests);
-    })
-  }, [foodId])
-  console.log(foodRequests);
+    if (loadedData) {
+      setRequests(loadedData);
+    }
+  }, [loadedData]);
 
   return (
     <div>
-      <p>Hello, I am ManageReq</p>
+      <p className="text-4xl font-bold text-center my-10">
+        Requester for this food:{requests.length}
+      </p>
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            {
+              requests?.map(request => <ManageReqRow
+                key={request._id}
+                request={request}
+              ></ManageReqRow>)
+           }
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

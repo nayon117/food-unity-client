@@ -76,9 +76,10 @@ const myCreatedRoute = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/update/${params._id}`),
       },
-      {
-        path: "/manage/:_id",
+    {
+          path: "/manage/:_id",
         element: <ManageReq></ManageReq>,
+        loader:({params})=>fetch(`http://localhost:5000/manage/${params._id}`)
       }
     ],
   },

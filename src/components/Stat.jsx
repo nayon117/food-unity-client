@@ -1,6 +1,11 @@
+import { motion } from "framer-motion"
+import { fadeIn } from "../variants";
 const Stat = () => {
   return (
-    <div className="my-12">
+    <motion.div variants={fadeIn("up", 0.2)}
+    initial="hidden"
+    whileInView={'show'}
+    viewport={{once:false, amount:0.7}} className="my-12">
       <div className="xl:px-20 px-6 py-20 xl:mx-auto xl:container">
         <h1 className="text-xl md:text-2xl  lg:text-4xl font-bold leading-tight text-center text-gray-800 sm:mb-0 mb-12">
           Community Statistics
@@ -38,7 +43,7 @@ const Stat = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Stat;

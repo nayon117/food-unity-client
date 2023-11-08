@@ -1,7 +1,12 @@
 import { BiSolidQuoteSingleLeft } from "react-icons/bi";
+import { motion } from "framer-motion"
+import { fadeIn } from "../variants";
 const Testimonial = () => {
   return (
-    <div className="py-16">
+    <motion.div variants={fadeIn("up", 0.3)}
+    initial="hidden"
+    whileInView={'show'}
+    viewport={{once:false, amount:0.7}} className="py-16">
       <div className="space-y-3">
         <h2 className="text-xl md:text-2xl  lg:text-4xl text-center font-bold">
           Stories of Impact
@@ -90,7 +95,7 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Testimonial;

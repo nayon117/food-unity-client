@@ -9,6 +9,7 @@ const DetailsCard = ({ details }) => {
   const { user } = useAuth();
   ``;
   const {
+    _id,
     additionalNotes,
     expiredDateTime,
     pickupLocation,
@@ -23,6 +24,7 @@ const DetailsCard = ({ details }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+
     const foodName = form.foodName.value;
     const foodImage = form.foodImage.value;
     const donatorName = form.donatorName.value;
@@ -31,15 +33,20 @@ const DetailsCard = ({ details }) => {
     const expiredDateTime = form.expiredDateTime.value;
     const AdditionalNotes = form.AdditionalNotes.value;
     const DonationMoney = form.DonationMoney.value;
+    const currentDate = form.currentDate.value;
+    
 
     const requestData = {
       foodName,
       foodImage,
-
+      foodId: _id,
+      requesterName: user?.displayName,
+      requesterImg:user?.photoURL,
       donatorName,
       pickupLocation,
       email,
       expiredDateTime,
+      currentDate,
       AdditionalNotes,
       DonationMoney,
     };
@@ -129,7 +136,7 @@ const DetailsCard = ({ details }) => {
               type="text"
               name="userEmail"
               readOnly
-              defaultValue={user.email}
+              defaultValue={user?.email}
             />
             <br />
             <label className="font-medium">Expire Date: </label>
@@ -141,6 +148,16 @@ const DetailsCard = ({ details }) => {
               defaultValue={expiredDateTime}
             />
             <br />
+            <label className="font-medium">Request Date:</label>
+            <input
+              id="currentDateInput"
+              className="font-medium border border-black px-2  rounded-md"
+              type="text"
+              name="currentDate"
+              value={new Date().toISOString().split('T')[0]}
+              readOnly
+            />
+              <br />
             <label className="font-medium">Additional Notes: </label>
             <input
               className="border border-black px-2  rounded-md"
