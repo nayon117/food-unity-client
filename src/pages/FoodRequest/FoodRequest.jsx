@@ -7,17 +7,16 @@ const FoodRequest = () => {
   const [reqeusts, setRequests] = useState([]);
   const { user } = useAuth();
   // const data = useLoaderData()
-  const url = `http://localhost:5000/requests?email=${user.email}`;
+  const url = `https://food-unity-server.vercel.app/requests?email=${user.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, [url]);
-  
-  useEffect(() => {
-    document.title = 'FoodUnity | Food Requests';
-  }, []);
 
+  useEffect(() => {
+    document.title = "FoodUnity | Food Requests";
+  }, []);
 
   return (
     <div className="my-10">

@@ -51,7 +51,7 @@ const DetailsCard = ({ details }) => {
     };
 
     axios
-      .post("http://localhost:5000/requests", requestData)
+      .post("https://food-unity-server.vercel.app/requests", requestData)
       .then((res) => {
         console.log("Response data:", res.data);
         if (res.data.acknowledged === true) {
@@ -68,13 +68,15 @@ const DetailsCard = ({ details }) => {
   };
 
   useEffect(() => {
-    document.title = 'FoodUnity | Details';
+    document.title = "FoodUnity | Details";
   }, []);
 
   return (
     <div className="my-20">
       <h2 className="font-medium text-xl">Donar Name: {donatorName}</h2>
-      <h3 className="font-medium text-xl py-4">pickup Location:{pickupLocation}</h3>
+      <h3 className="font-medium text-xl py-4">
+        pickup Location:{pickupLocation}
+      </h3>
       <img src={foodImage} alt="" />
       <div className="space-y-3 py-4">
         <h3 className="font-medium">Food Name: {foodName}</h3>

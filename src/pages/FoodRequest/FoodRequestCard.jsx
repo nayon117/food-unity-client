@@ -22,7 +22,7 @@ const FoodRequestCard = ({ request, reqeusts, setRequests }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/requests/${_id}`, {
+        fetch(`https://food-unity-server.vercel.app/requests/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -44,9 +44,12 @@ const FoodRequestCard = ({ request, reqeusts, setRequests }) => {
 
   return (
     <div className="my-12">
-      <div data-aos="flip-left"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="1500" className="relative  flex w-full max-w-[50rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+      <div
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"
+        className="relative  flex w-full max-w-[50rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+      >
         <div className="relative flex-1 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
           <img
             src={foodImage}
