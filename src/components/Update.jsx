@@ -22,6 +22,7 @@ const Update = () => {
     pickupLocation,
     expiredDateTime,
     foodStatus,
+    additionalNotes
   } = updateForms || {};
 
   const handleSubmit = (e) => {
@@ -33,6 +34,7 @@ const Update = () => {
     const pickupLocation = form.pickupLocation.value;
     const expiredDateTime = form.expiredDateTime.value;
     const foodStatus = form.foodStatus.value;
+    const additionalNotes = form.additionalNotes.value;
 
     const updateData = {
       foodName,
@@ -41,17 +43,16 @@ const Update = () => {
       pickupLocation,
       expiredDateTime,
       foodStatus,
+      additionalNotes
     };
     console.log(updateData);
 
-    axios
-      .put(`https://food-unity-server.vercel.app/update/${_id}`, updateData)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.modifiedCount > 0) {
-          toast.success("you have update data successfully");
-        }
-      });
+    axios.put(`http://localhost:5000/update/${_id}`, updateData).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        toast.success("you have update data successfully");
+      }
+    });
   };
 
   useEffect(() => {
@@ -137,6 +138,21 @@ const Update = () => {
               className="input w-full input-bordered  "
               name="foodStatus"
               defaultValue={foodStatus}
+            />
+          </div>
+        </div>
+        {/* Additional Notes */}
+        <div className="mb-6">
+          <div className="w-full">
+            <label className="label" htmlFor="image">
+              <span className="label-text">Additional Notes</span>
+            </label>
+
+            <input
+              className="input w-full input-bordered"
+              name="additionalNotes"
+              defaultValue={additionalNotes}
+              placeholder="Additional Notes"
             />
           </div>
         </div>
