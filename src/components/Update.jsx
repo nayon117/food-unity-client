@@ -14,8 +14,8 @@ const Update = () => {
   }, [data]);
 
   console.log(updateForms);
-    const {
-      _id,
+  const {
+    _id,
     foodName,
     foodImage,
     foodQuantity,

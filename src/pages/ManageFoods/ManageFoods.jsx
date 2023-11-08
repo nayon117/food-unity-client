@@ -44,9 +44,12 @@ const ManageFoods = () => {
         accessor: "actions",
         Cell: ({ row }) => (
           <div>
-            <Link to={`/update/${row.original._id}`} className="btn btn-sm btn-neutral">
-            Edit
-          </Link>
+            <Link
+              to={`/update/${row.original._id}`}
+              className="btn btn-sm btn-neutral"
+            >
+              Edit
+            </Link>
             <br />
             <button
               className="btn btn-sm btn-neutral my-2"
@@ -54,8 +57,10 @@ const ManageFoods = () => {
             >
               Delete
             </button>
-            <br />
-            <button className="btn btn-sm btn-neutral">Manage</button>
+           <br />
+             <Link to={`/manage/${row.original._id}`}>
+              <button className="btn btn-sm btn-neutral">Manage</button>
+            </Link>
           </div>
         ),
       },
@@ -98,7 +103,10 @@ const ManageFoods = () => {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th  className="px-4 py-2 mx-auto text-justify bg-gray-200" {...column.getHeaderProps()}>
+                  <th
+                    className="px-4 py-2 mx-auto text-justify bg-gray-200"
+                    {...column.getHeaderProps()}
+                  >
                     {column.render("Header")}
                   </th>
                 ))}
@@ -111,7 +119,13 @@ const ManageFoods = () => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => (
-                    <td className="px-4 py-2 text-justify" {...cell.getCellProps()}> {cell.render("Cell")} </td>
+                    <td
+                      className="px-4 py-2 text-justify"
+                      {...cell.getCellProps()}
+                    >
+                      {" "}
+                      {cell.render("Cell")}{" "}
+                    </td>
                   ))}
                 </tr>
               );
