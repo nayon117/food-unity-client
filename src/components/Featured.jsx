@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Featured = () => {
   const [availableFoods, setAvailableFoods] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/first-six")
+    fetch("https://food-unity-server.vercel.app/first-six")
       .then((res) => res.json())
       .then((data) => setAvailableFoods(data));
   }, []);

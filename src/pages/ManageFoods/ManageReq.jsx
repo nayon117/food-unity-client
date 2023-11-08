@@ -14,7 +14,7 @@ const ManageReq = () => {
   }, [loadedData]);
 
   //   const handleDeleteRequest = (foodId) => {
-  //     axios.delete(`http://localhost:5000/requests/${foodId}`)
+  //     axios.delete(`https://food-unity-server.vercel.app/requests/${foodId}`)
   //       .then(res => {
   //       console.log(res.data);
   //     })
