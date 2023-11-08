@@ -1,12 +1,8 @@
 import { BiSolidQuoteSingleLeft } from "react-icons/bi";
-import { motion } from "framer-motion"
-import { fadeIn } from "../variants";
+
 const Testimonial = () => {
   return (
-    <motion.div variants={fadeIn("up", 0.3)}
-    initial="hidden"
-    whileInView={'show'}
-    viewport={{once:false, amount:0.7}} className="py-16">
+    <div  className="py-16">
       <div className="space-y-3">
         <h2 className="text-xl md:text-2xl  lg:text-4xl text-center font-bold">
           Stories of Impact
@@ -18,7 +14,9 @@ const Testimonial = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
-        <div role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
+        <div  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500" role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
           <BiSolidQuoteSingleLeft></BiSolidQuoteSingleLeft>
           <div className="pl-4 pt-4 flex items-start justify-between">
             <div className="mr-6">
@@ -37,7 +35,9 @@ const Testimonial = () => {
             />
           </div>
         </div>
-        <div role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
+        <div  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500" role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
           <BiSolidQuoteSingleLeft></BiSolidQuoteSingleLeft>
           <div className="pl-4 pt-4 flex items-start justify-between">
             <div className="mr-6">
@@ -56,7 +56,9 @@ const Testimonial = () => {
             />
           </div>
         </div>
-        <div role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
+        <div  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500" role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
           <BiSolidQuoteSingleLeft></BiSolidQuoteSingleLeft>
           <div className="pl-4 pt-4 flex items-start justify-between">
             <div className="mr-6">
@@ -75,7 +77,9 @@ const Testimonial = () => {
           </div>
         </div>
 
-        <div role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
+        <div  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1500" role="listitem" className="bg-white shadow rounded p-4 xl:p-8">
           <BiSolidQuoteSingleLeft></BiSolidQuoteSingleLeft>
           <div className="pl-4 pt-4 flex items-start justify-between">
             <div className="mr-6">
@@ -95,7 +99,7 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 export default Testimonial;

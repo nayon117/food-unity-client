@@ -50,7 +50,7 @@ const myCreatedRoute = createBrowserRouter([
             <FoodRequest></FoodRequest>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://food-unity-server.vercel.app/requests"),
+        loader: () => fetch("http://localhost:5000/requests"),
       },
       {
         path: "/login",
@@ -68,19 +68,19 @@ const myCreatedRoute = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://food-unity-server.vercel.app/foods/${params._id}`),
+          fetch(`http://localhost:5000/foods/${params._id}`),
       },
       {
         path: "/update/:_id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`https://food-unity-server.vercel.app/update/${params._id}`),
+          fetch(`http://localhost:5000/update/${params._id}`),
       },
       {
         path: "/manage/:_id",
         element: <ManageReq></ManageReq>,
         loader: ({ params }) =>
-          fetch(`https://food-unity-server.vercel.app/manage/${params._id}`),
+          fetch(`http://localhost:5000/manage/${params._id}`),
       },
     ],
   },

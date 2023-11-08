@@ -30,14 +30,12 @@ const AddFood = () => {
       foodStatus,
     };
 
-    axios
-      .post("https://food-unity-server.vercel.app/foods", addData)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          toast.success("you have added successfully");
-        }
-      });
+    axios.post("http://localhost:5000/foods", addData).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        toast.success("you have added successfully");
+      }
+    });
   };
 
   return (

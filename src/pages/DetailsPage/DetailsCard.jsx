@@ -51,7 +51,7 @@ const DetailsCard = ({ details }) => {
     };
 
     axios
-      .post("https://food-unity-server.vercel.app/requests", requestData)
+      .post("http://localhost:5000/requests", requestData)
       .then((res) => {
         console.log("Response data:", res.data);
         if (res.data.acknowledged === true) {

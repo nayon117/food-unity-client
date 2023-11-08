@@ -44,14 +44,12 @@ const Update = () => {
     };
     console.log(updateData);
 
-    axios
-      .put(`https://food-unity-server.vercel.app/update/${_id}`, updateData)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.modifiedCount > 0) {
-          toast.success("you have update data successfully");
-        }
-      });
+    axios.put(`http://localhost:5000/update/${_id}`, updateData).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        toast.success("you have update data successfully");
+      }
+    });
   };
 
   return (
