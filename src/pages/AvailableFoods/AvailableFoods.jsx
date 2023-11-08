@@ -7,7 +7,7 @@ const AvailableFoods = () => {
   const [sortOrder, setSortOrder] = useState("desc");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foods?sort=${sortOrder}`)
+    fetch(`https://food-unity-server.vercel.app/foods?sort=${sortOrder}`)
       .then((res) => res.json())
       .then((data) => setAvailableFoods(data));
   }, [sortOrder]);

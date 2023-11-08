@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 const ManageFoods = () => {
   const [foods, setFoods] = useState([]);
   const { user } = useAuth();
-  const url = `http://localhost:5000/foods?email=${user?.email}`;
+  const url = `https://food-unity-server.vercel.app/foods?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -57,8 +57,8 @@ const ManageFoods = () => {
             >
               Delete
             </button>
-           <br />
-             <Link to={`/manage/${row.original._id}`}>
+            <br />
+            <Link to={`/manage/${row.original._id}`}>
               <button className="btn btn-sm btn-neutral">Manage</button>
             </Link>
           </div>
@@ -82,15 +82,21 @@ const ManageFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/foods/${_id}`).then((res) => {
-          console.log(res.data);
-          if (res.data.deletedCount > 0) {
-            Swal.fire("Deleted!", "Your request has been deleted.", "success");
-            setFoods((prevFoods) =>
-              prevFoods.filter((food) => food._id !== _id)
-            );
-          }
-        });
+        axios
+          .delete(`https://food-unity-server.vercel.app/foods/${_id}`)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              Swal.fire(
+                "Deleted!",
+                "Your request has been deleted.",
+                "success"
+              );
+              setFoods((prevFoods) =>
+                prevFoods.filter((food) => food._id !== _id)
+              );
+            }
+          });
       }
     });
   };

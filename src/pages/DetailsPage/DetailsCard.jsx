@@ -34,14 +34,13 @@ const DetailsCard = ({ details }) => {
     const AdditionalNotes = form.AdditionalNotes.value;
     const DonationMoney = form.DonationMoney.value;
     const currentDate = form.currentDate.value;
-    
 
     const requestData = {
       foodName,
       foodImage,
       foodId: _id,
       requesterName: user?.displayName,
-      requesterImg:user?.photoURL,
+      requesterImg: user?.photoURL,
       donatorName,
       pickupLocation,
       email,
@@ -52,7 +51,7 @@ const DetailsCard = ({ details }) => {
     };
 
     axios
-      .post("http://localhost:5000/requests", requestData)
+      .post("https://food-unity-server.vercel.app/requests", requestData)
       .then((res) => {
         console.log("Response data:", res.data);
         if (res.data.acknowledged === true) {
@@ -154,10 +153,10 @@ const DetailsCard = ({ details }) => {
               className="font-medium border border-black px-2  rounded-md"
               type="text"
               name="currentDate"
-              value={new Date().toISOString().split('T')[0]}
+              value={new Date().toISOString().split("T")[0]}
               readOnly
             />
-              <br />
+            <br />
             <label className="font-medium">Additional Notes: </label>
             <input
               className="border border-black px-2  rounded-md"

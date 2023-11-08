@@ -13,6 +13,13 @@ const ManageReq = () => {
     }
   }, [loadedData]);
 
+  //   const handleDeleteRequest = (foodId) => {
+  //     axios.delete(`https://food-unity-server.vercel.app/requests/${foodId}`)
+  //       .then(res => {
+  //       console.log(res.data);
+  //     })
+  // }
+
   return (
     <div>
       <p className="text-4xl font-bold text-center my-10">
@@ -32,12 +39,9 @@ const ManageReq = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {
-              requests?.map(request => <ManageReqRow
-                key={request._id}
-                request={request}
-              ></ManageReqRow>)
-           }
+            {requests?.map((request) => (
+              <ManageReqRow key={request._id} request={request}></ManageReqRow>
+            ))}
           </tbody>
         </table>
       </div>

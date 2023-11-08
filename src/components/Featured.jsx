@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Featured = () => {
   const [availableFoods, setAvailableFoods] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/first-six")
+    fetch("https://food-unity-server.vercel.app/first-six")
       .then((res) => res.json())
       .then((data) => setAvailableFoods(data));
   }, []);
@@ -13,7 +13,7 @@ const Featured = () => {
   return (
     <div className="my-20">
       <h3 className="text-4xl font-bold text-center">Featured Foods</h3>
-      <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {availableFoods?.map((food) => (
           <FeaturedCard key={food._id} food={food}></FeaturedCard>
         ))}
